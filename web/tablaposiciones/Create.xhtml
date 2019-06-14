@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TablaposicionesCreateDlg" widgetVar="TablaposicionesCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTablaposicionesTitle}">
+            <h:form id="TablaposicionesCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tablaposicionesController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTablaposicionesLabel_jugador}" for="jugador" />
+                        <p:inputText id="jugador" value="#{tablaposicionesController.selected.jugador}" title="#{bundle.CreateTablaposicionesTitle_jugador}" required="true" requiredMessage="#{bundle.CreateTablaposicionesRequiredMessage_jugador}"/>
+                        <p:outputLabel value="#{bundle.CreateTablaposicionesLabel_posicion}" for="posicion" />
+                        <p:inputText id="posicion" value="#{tablaposicionesController.selected.posicion}" title="#{bundle.CreateTablaposicionesTitle_posicion}" required="true" requiredMessage="#{bundle.CreateTablaposicionesRequiredMessage_posicion}"/>
+                        <p:outputLabel value="#{bundle.CreateTablaposicionesLabel_id}" for="id" />
+                        <p:selectOneMenu id="id" value="#{tablaposicionesController.selected.id}" required="true" requiredMessage="#{bundle.EditTablaposicionesRequiredMessage_id}">
+                            <f:selectItems value="#{jugadorController.itemsAvailableSelectOne}"
+                                           var="idItem"
+                                           itemValue="#{idItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{tablaposicionesController.create}" value="#{bundle.Save}" update="display,:TablaposicionesListForm:datalist,:growl" oncomplete="handleSubmit(args,'TablaposicionesCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TablaposicionesCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

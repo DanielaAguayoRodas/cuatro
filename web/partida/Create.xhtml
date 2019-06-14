@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="PartidaCreateDlg" widgetVar="PartidaCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreatePartidaTitle}">
+            <h:form id="PartidaCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{partidaController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreatePartidaLabel_idpartida}" for="idpartida" />
+                        <p:inputText id="idpartida" value="#{partidaController.selected.idpartida}" title="#{bundle.CreatePartidaTitle_idpartida}" required="true" requiredMessage="#{bundle.CreatePartidaRequiredMessage_idpartida}"/>
+                        <p:outputLabel value="#{bundle.CreatePartidaLabel_ganador}" for="ganador" />
+                        <p:inputText id="ganador" value="#{partidaController.selected.ganador}" title="#{bundle.CreatePartidaTitle_ganador}" required="true" requiredMessage="#{bundle.CreatePartidaRequiredMessage_ganador}"/>
+                        <p:outputLabel value="#{bundle.CreatePartidaLabel_tiempototalpartida}" for="tiempototalpartida" />
+                        <p:inputText id="tiempototalpartida" value="#{partidaController.selected.tiempototalpartida}" title="#{bundle.CreatePartidaTitle_tiempototalpartida}" required="true" requiredMessage="#{bundle.CreatePartidaRequiredMessage_tiempototalpartida}"/>
+                        <p:outputLabel value="#{bundle.CreatePartidaLabel_jugador}" for="jugador" />
+                        <p:selectOneMenu id="jugador" value="#{partidaController.selected.jugador}" required="true" requiredMessage="#{bundle.EditPartidaRequiredMessage_jugador}">
+                            <f:selectItems value="#{jugadorController.itemsAvailableSelectOne}"
+                                           var="jugadorItem"
+                                           itemValue="#{jugadorItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{partidaController.create}" value="#{bundle.Save}" update="display,:PartidaListForm:datalist,:growl" oncomplete="handleSubmit(args,'PartidaCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="PartidaCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

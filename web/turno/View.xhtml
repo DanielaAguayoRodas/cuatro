@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TurnoViewDlg" widgetVar="TurnoViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTurnoTitle}">
+            <h:form id="TurnoViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{turnoController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTurnoLabel_tiempoparajugar}"/>
+                        <h:outputText value="#{turnoController.selected.tiempoparajugar}" title="#{bundle.ViewTurnoTitle_tiempoparajugar}"/>
+                        <h:outputText value="#{bundle.ViewTurnoLabel_jugadorturno}"/>
+                        <h:outputText value="#{turnoController.selected.jugadorturno}" title="#{bundle.ViewTurnoTitle_jugadorturno}"/>
+                        <h:outputText value="#{bundle.ViewTurnoLabel_jugador}"/>
+                        <h:outputText value="#{turnoController.selected.jugador}" title="#{bundle.ViewTurnoTitle_jugador}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TurnoViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Scene Scope="Project" version="2">
+    <Scope Scope="Faces Configuration Only"/>
+    <Scope Scope="Project">
+        <Node id="casilla/List.xhtml" x="1400" y="300" zoom="true"/>
+        <Node id="casilla/Create.xhtml" x="400" y="750" zoom="true"/>
+        <Node id="persona/Edit.xhtml" x="900" y="600" zoom="true"/>
+        <Node id="persona/Create.xhtml" x="400" y="450" zoom="true"/>
+        <Node id="welcomePrimefaces.xhtml" x="400" y="900" zoom="true"/>
+        <Node id="turno/List.xhtml" x="400" y="600" zoom="true"/>
+        <Node id="partida/List.xhtml" x="1150" y="150" zoom="true"/>
+        <Node id="turno/Edit.xhtml" x="1150" y="600" zoom="true"/>
+        <Node id="casilla/View.xhtml" x="400" y="150" zoom="true"/>
+        <Node id="turno/View.xhtml" x="650" y="600" zoom="true"/>
+        <Node id="tablero/Create.xhtml" x="150" y="900" zoom="true"/>
+        <Node id="tablaposiciones/List.xhtml" x="1150" y="300" zoom="true"/>
+        <Node id="tablaposiciones/View.xhtml" x="1150" y="450" zoom="true"/>
+        <Node id="home.xhtml" x="400" y="300" zoom="true"/>
+        <Node id="tablero/List.xhtml" x="900" y="450" zoom="true"/>
+        <Node id="partida/Edit.xhtml" x="150" y="750" zoom="true"/>
+        <Node id="template.xhtml" x="900" y="300" zoom="true"/>
+        <Node id="tablero.xhtml" x="650" y="450" zoom="true"/>
+        <Node id="partida/View.xhtml" x="150" y="150" zoom="true"/>
+        <Node id="partida/Create.xhtml" x="1400" y="150" zoom="true"/>
+        <Node id="tablero/View.xhtml" x="650" y="300" zoom="true"/>
+        <Node id="tablero/Edit.xhtml" x="150" y="600" zoom="true"/>
+        <Node id="index.xhtml" x="150" y="300" zoom="true"/>
+        <Node id="tablaposiciones/Edit.xhtml" x="650" y="750" zoom="true"/>
+        <Node id="jugador/Edit.xhtml" x="1650" y="150" zoom="true"/>
+        <Node id="jugador/View.xhtml" x="900" y="150" zoom="true"/>
+        <Node id="jugador/List.xhtml" x="650" y="150" zoom="true"/>
+        <Node id="casilla/Edit.xhtml" x="150" y="1050" zoom="true"/>
+        <Node id="persona/List.xhtml" x="1650" y="300" zoom="true"/>
+        <Node id="turno/Create.xhtml" x="1400" y="450" zoom="true"/>
+        <Node id="jugador/Create.xhtml" x="150" y="450" zoom="true"/>
+        <Node id="persona/View.xhtml" x="1900" y="150" zoom="true"/>
+        <Node id="tablaposiciones/Create.xhtml" x="900" y="750" zoom="true"/>
+    </Scope>
+    <Scope Scope="All Faces Configurations"/>
+</Scene>

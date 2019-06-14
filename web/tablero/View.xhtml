@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TableroViewDlg" widgetVar="TableroViewDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.ViewTableroTitle}">
+            <h:form id="TableroViewForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{tableroController.selected != null}">
+                        <h:outputText value="#{bundle.ViewTableroLabel_alto}"/>
+                        <h:outputText value="#{tableroController.selected.alto}" title="#{bundle.ViewTableroTitle_alto}"/>
+                        <h:outputText value="#{bundle.ViewTableroLabel_ancho}"/>
+                        <h:outputText value="#{tableroController.selected.ancho}" title="#{bundle.ViewTableroTitle_ancho}"/>
+                    </p:panelGrid>
+                    <p:commandButton value="#{bundle.Close}" onclick="TableroViewDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>

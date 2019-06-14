@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:f="http://xmlns.jcp.org/jsf/core"
+      xmlns:p="http://primefaces.org/ui">
+
+    <ui:composition>
+
+        <p:dialog id="TurnoCreateDlg" widgetVar="TurnoCreateDialog" modal="true" resizable="false" appendTo="@(body)" header="#{bundle.CreateTurnoTitle}">
+            <h:form id="TurnoCreateForm">
+                <h:panelGroup id="display">
+                    <p:panelGrid columns="2" rendered="#{turnoController.selected != null}">
+                        <p:outputLabel value="#{bundle.CreateTurnoLabel_tiempoparajugar}" for="tiempoparajugar" />
+                        <p:inputText id="tiempoparajugar" value="#{turnoController.selected.tiempoparajugar}" title="#{bundle.CreateTurnoTitle_tiempoparajugar}" required="true" requiredMessage="#{bundle.CreateTurnoRequiredMessage_tiempoparajugar}"/>
+                        <p:outputLabel value="#{bundle.CreateTurnoLabel_jugadorturno}" for="jugadorturno" />
+                        <p:inputText id="jugadorturno" value="#{turnoController.selected.jugadorturno}" title="#{bundle.CreateTurnoTitle_jugadorturno}" required="true" requiredMessage="#{bundle.CreateTurnoRequiredMessage_jugadorturno}"/>
+                        <p:outputLabel value="#{bundle.CreateTurnoLabel_jugador}" for="jugador" />
+                        <p:selectOneMenu id="jugador" value="#{turnoController.selected.jugador}" required="true" requiredMessage="#{bundle.EditTurnoRequiredMessage_jugador}">
+                            <f:selectItems value="#{jugadorController.itemsAvailableSelectOne}"
+                                           var="jugadorItem"
+                                           itemValue="#{jugadorItem}"/>
+                        </p:selectOneMenu>
+                    </p:panelGrid>
+                    <p:commandButton actionListener="#{turnoController.create}" value="#{bundle.Save}" update="display,:TurnoListForm:datalist,:growl" oncomplete="handleSubmit(args,'TurnoCreateDialog');"/>
+                    <p:commandButton value="#{bundle.Cancel}" onclick="TurnoCreateDialog.hide()"/>
+                </h:panelGroup>
+            </h:form>
+        </p:dialog>
+
+    </ui:composition>
+</html>
